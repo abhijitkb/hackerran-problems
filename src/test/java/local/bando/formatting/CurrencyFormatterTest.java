@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class CurrencyFormatterTest {
     @Test
     void testUSDFormat() {
-        Assertions.assertEquals( "$12,324.13", CurrencyFormatter.formattedCcy(12324.13, "en", "us"));
+        Assertions.assertEquals( "$12,324.13", CurrencyFormatter.formattedCcy(12324.13, Locale.US));
     }
 
     @Test
     void testINRFormat() {
-        Assertions.assertEquals( "Rs.12,324.13", CurrencyFormatter.formattedCcy(12324.13, "en", "in"));
+        Assertions.assertEquals( "Rs.12,324.13", CurrencyFormatter.formattedCcy(12324.13, "en", "IN"));
     }
 
     @Test
