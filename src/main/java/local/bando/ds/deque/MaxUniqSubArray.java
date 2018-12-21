@@ -22,14 +22,12 @@ public class MaxUniqSubArray {
 
             // special handling when we start rolling the current deque
             if(i >= this.SUB_ARRAY_SIZE) {
-                int first = this.workset.peekFirst();
                 // no need to do anything ... the element pushed and popped have same values
-                if(first == cur)
+                if(this.workset.peekFirst() == cur)
                     continue;
 
-                this.workset.removeFirst();
                 // null removes the key else decrements the count
-                this.counter.merge(cur, -1, (a, b) -> a == 1 ? null : a + b);
+                this.counter.merge(this.workset.removeFirst(), -1, (a, b) -> a == 1 ? null : a + b);
             }
 
             // Keep on adding to the deque
